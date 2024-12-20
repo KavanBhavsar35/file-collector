@@ -1,71 +1,114 @@
-# context-creator README
+# File Collector Extension for VS Code
 
-This is the README for your extension "context-creator". After writing up a brief description, we recommend including the following sections.
+## Overview
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+The **File Collector** extension allows users to explore the files in their workspace, select files using checkboxes, and generate a single output file containing the content of the selected files. It provides an intuitive tree-view interface integrated into the Activity Bar and includes features such as toggling all file selections and generating consolidated files with ease.
 
 ---
 
-## Following extension guidelines
+## Features
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+1. **Tree View of Workspace Files**
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+   - Displays all files and directories in the workspace.
+   - Excludes ".git" and "node\_modules" directories from the view.
 
-## Working with Markdown
+2. **Checkbox Selection**
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+   - Use checkboxes to select files directly in the tree view.
+   - Toggle between checked and unchecked states.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+3. **Select/Deselect All Files**
 
-## For more information
+   - A command to toggle the selection state of all files.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+4. **Generate Consolidated File**
 
-**Enjoy!**
+   - Combine the content of selected files into a single output file.
+   - Specify a custom filename via an input box.
+
+
+---
+
+## Installation
+
+1. Open VS Code.
+2. Go to the Extensions view (`Ctrl+Shift+X`).
+3. Search for **File Collector**.
+4. Click **Install**.
+
+---
+
+## Usage Instructions
+
+### Activating the Extension
+
+- After installation, the extension appears in the Activity Bar as **File Collector**.
+- Click on it to open the file tree view.
+
+### Commands
+
+| Command                                  | Description                                      | How to Use                                         |
+| ---------------------------------------- | ------------------------------------------------ | -------------------------------------------------- |
+| `File Collector: Generate Combined File` | Combines selected files into one output file.    | Right-click the view title or use Command Palette. |
+| `File Collector: Toggle All Files`       | Selects or deselects all files in the tree view. | Right-click the view title or use Command Palette. |
+
+
+### Selecting Files
+
+1. Open the **Files** view under **File Collector** in the Activity Bar.
+2. Click the checkboxes to select or deselect files.
+3. Use the **Toggle All Files** command to select/deselect all files at once.
+
+### Generating a File
+
+1. Select the desired files in the **Files** tree view.
+2. Run the `File Collector: Generate Combined File` command.
+3. Enter a filename (without an extension) in the input box.
+4. View the generated `.txt` file in your workspace.
+
+## Configuration
+
+The extension does not currently provide user-configurable settings but supports future extensions for customization.
+
+---
+
+## Key Features in Code
+
+- **Tree View with Checkbox Support**: The `FileCollectorProvider` class manages the file tree and the checkbox states.
+- **State Management**: Tracks checked files and allows toggling of individual or all files.
+- **Output Generation**: Combines the contents of selected files and writes them into a user-specified file.
+
+---
+
+## Future Improvements
+
+- Add user settings for excluding additional directories or file types.
+- Allow file preview before generating the output.
+- Add multi-workspace support.
+
+---
+
+## Known Issues
+
+- Files in deeply nested directories may take longer to process.
+- Large files may impact performance during content concatenation.
+
+---
+
+## Contributing
+
+Contributions are welcome! Submit a pull request or raise an issue on the GitHub repository.
+
+---
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+For questions, suggestions, or issues, contact kvbhavsar35@gmail.com.
+
